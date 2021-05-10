@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"net/http"
 	"swa__prakt2_todo-02/app/controller"
 
@@ -52,7 +53,9 @@ func main() {
 	//	Handler: handler,
 	//}
 
-	http.ListenAndServeTLS(":8443",
+	err := http.ListenAndServeTLS(":8443",
 		"/etc/letsencrypt/live/ecs-80-158-58-79.reverse.open-telekom-cloud.com/fullchain.pem",
 		"/etc/letsencrypt/live/ecs-80-158-58-79.reverse.open-telekom-cloud.com/privkey.pem", handler)
+
+	log.Fatal(err)
 }
