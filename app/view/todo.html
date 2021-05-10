@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/open-iconic-bootstrap.css">
+	<!-- App CSS-->
+	<link rel="stylesheet" href="/css/styles.css">
+
+	<title>TODOS -- Get things done</title>
+</head>
+
+<body>
+	<div class="py-5 text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1 class="display-3 text-capitalize">
+						<a href="/">T&#x2610;d&#x2611;s</a>
+					</h1>
+					<p class="lead text-muted">Get things done</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="py-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<a class="text-secondary" href="/logout"><span class="oi oi-account-logout"></span></a>
+					<span class="oi oi-person"></span>&nbsp;{{.Username}}
+					<hr />
+					<h2>Todo-List</h2>
+					<div class="py-4">
+						<div class="container">
+							<div class="row">
+								<div class="col-12">
+									<form class="form-inline justify-content-center" action="#" method="POST">
+										<div class="input-group">
+											<input type="text" class="form-control form-control-lg" name="action" placeholder="Todo" disabled>
+											<div class="input-group-append">
+												<button class="btn btn-secondary btn-lg" type="submit" disabled>Add</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<ul class="list-group checked-list-box">
+										No todos yet...
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="/js/jquery-3.3.1.slim.min.js"></script>
+	<script src="/js/popper.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>

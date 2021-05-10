@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/open-iconic-bootstrap.css" />
+	<!-- Alertify CSS -->
+  <link rel="stylesheet" href="/css/alertify.min.css" />
+  <link rel="stylesheet" href="/css/themes/default.min.css" /> 
+	<!-- App CSS-->
+	<link rel="stylesheet" href="/css/styles.css" />
+
+	<title>TODOS -- Get things done</title>
+</head>
+
+<body>
+	<div class="py-5 text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1 class="display-3 text-capitalize">
+						<a href="/">T&#x2610;d&#x2611;s</a>
+					</h1>
+					<p class="lead text-muted">Get things done</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="py-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<span class="oi"></span>
+					<hr />
+					<h2>Login</h2>
+					<form class="form-inline justify-content-center" action="/login" method="POST">
+						<div class="input-group">
+							<input type="text" class="form-control form-control-lg" name="username" placeholder="Username">
+						</div>
+						<div class="input-group">
+							<input type="password" class="form-control form-control-lg" name="password" placeholder="Password">
+						</div>
+						<div class="input-group-append">
+							<button class="btn btn-secondary btn-lg" type="submit">Login</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS, then Alertify -->
+	<script src="/js/jquery-3.3.1.slim.min.js"></script>
+	<script src="/js/popper.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	{{if .ErrorMessage}}
+	<script src="/js/alertify.min.js"></script>
+	<script>
+		// error message appears for 3 seconds
+		alertify.error('{{.ErrorMessage}}', 3);
+	</script>
+	{{end}}
+</body>
+
+</html>
