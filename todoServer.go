@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"net/http"
+	"swa__prakt2_todo-02/app/controller"
 
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
@@ -28,7 +29,16 @@ func main() {
 
 	// We do have static resources only
 	r := mux.NewRouter()
-	r.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir("./static/html/"+port))))
+	//r.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir("./static/html/"+port))))
+	// Static resources
+	r.PathPrefix("/css/").Handler(http.StripPrefix("/css", http.FileServer(http.Dir("./static/css"))))
+	r.PathPrefix("/fonts/").Handler(http.StripPrefix("/fonts", http.FileServer(http.Dir("./static/fonts"))))
+	r.PathPrefix("/js/").Handler(http.StripPrefix("/js", http.FileServer(http.Dir("./static/js"))))
+
+	r.HandleFunc("/", controller.Index).Methods("GET")
+	r.HandleFunc("/login", controller.Login).Methods("POST")
+	r.HandleFunc("/logout", controller.Logout).Methods("GET")
+
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{"http://localhost:8443", "https://ecs-80-158-56-113.reverse.open-telekom-cloud.com"},
 		AllowedMethods: []string{"GET", "POST", "OPTIONS"},
