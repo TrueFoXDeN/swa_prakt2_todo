@@ -40,17 +40,19 @@ func main() {
 	r.HandleFunc("/logout", controller.Logout).Methods("GET")
 
 	c := cors.New(cors.Options{
-		AllowedOrigins: []string{"http://localhost:8443", "https://ecs-80-158-58-79.reverse.open-telekom-cloud.com/"},
+		AllowedOrigins: []string{"http://localhost:8443", "https://ecs-80-158-58-79.reverse.open-telekom-cloud.com"},
 		AllowedMethods: []string{"GET", "POST", "OPTIONS"},
 		AllowedHeaders: []string{"Access-Control-Allow-Headers", "Content-Type"},
 	})
 	handler := c.Handler(r)
 
 	// Start the server
-	server := http.Server{
-		Addr:    ":8443",
-		Handler: handler,
-	}
+	//server := http.Server{
+	//	Addr:    ":8443",
+	//	Handler: handler,
+	//}
 
-	server.ListenAndServe()
+	http.ListenAndServeTLS(":8443",
+		"/etc/letsencrypt/live/ecs-80-158-58-79.reverse.open-telekom-cloud.com/fullchain.pem",
+		"/etc/letsencrypt/live/ecs-80-158-58-79.reverse.open-telekom-cloud.com/privkey.pem", handler)
 }
