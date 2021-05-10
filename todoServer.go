@@ -21,7 +21,7 @@ func main() {
 	var port string
 
 	// Read in server port from command line (8080 is the default)
-	flag.StringVar(&port, "port", "8", "a server port")
+	flag.StringVar(&port, "port", "8443", "a server port")
 	flag.Parse()
 
 	// Tell user on what port the server is listening
@@ -40,7 +40,7 @@ func main() {
 	r.HandleFunc("/logout", controller.Logout).Methods("GET")
 
 	c := cors.New(cors.Options{
-		AllowedOrigins: []string{"http://localhost:8443", "https://ecs-80-158-56-113.reverse.open-telekom-cloud.com"},
+		AllowedOrigins: []string{"http://localhost:8443", "https://ecs-80-158-58-79.reverse.open-telekom-cloud.com/"},
 		AllowedMethods: []string{"GET", "POST", "OPTIONS"},
 		AllowedHeaders: []string{"Access-Control-Allow-Headers", "Content-Type"},
 	})
