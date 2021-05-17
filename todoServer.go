@@ -47,13 +47,7 @@ func main() {
 	})
 	handler := c.Handler(r)
 
-	// Start the server
-	//server := http.Server{
-	//	Addr:    ":8443",
-	//	Handler: handler,
-	//}
-
-	err := http.ListenAndServeTLS(":8443",
+	err := http.ListenAndServeTLS("localhost:8443",
 		"/etc/letsencrypt/live/ecs-80-158-58-79.reverse.open-telekom-cloud.com/fullchain.pem",
 		"/etc/letsencrypt/live/ecs-80-158-58-79.reverse.open-telekom-cloud.com/privkey.pem", handler)
 
